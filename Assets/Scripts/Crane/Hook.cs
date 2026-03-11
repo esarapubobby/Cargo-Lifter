@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class Hook : MonoBehaviour
@@ -20,7 +18,7 @@ public class Hook : MonoBehaviour
     public int totalCargoReleased = 0;
     public bool isGameStarted = false;
     public int ObstacleCollisionCount = 0;
-    public int highestCargoStack = 0;
+    //public int highestCargoStack = 0;
     public int repCount = 0;
     public float holdTimer = 0f;
     public int postureBreaks = 0;
@@ -135,10 +133,10 @@ public class Hook : MonoBehaviour
 
         totalCargoReleased += cargoStack.Count;
 
-        if(cargoStack.Count > highestCargoStack)
-        {
-            highestCargoStack = cargoStack.Count;
-        }
+        //if(cargoStack.Count > highestCargoStack)
+        //{
+        //    highestCargoStack = cargoStack.Count;
+        //}
 
         foreach (GameObject c in cargoStack)
         {

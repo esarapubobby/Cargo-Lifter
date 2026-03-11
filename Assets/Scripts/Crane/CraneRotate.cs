@@ -6,7 +6,7 @@ public class CraneRotate : MonoBehaviour
     public float endAngle = 90f;
     public float rotationSpeed = 10f;
 
-    float currentAngle;
+    public float currentAngle;
     public bool isRotating;
     public bool isCollided = false;
 

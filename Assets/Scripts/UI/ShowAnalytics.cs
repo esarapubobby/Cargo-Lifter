@@ -25,7 +25,7 @@ public class ShowAnalytics : MonoBehaviour
         //game related 
         compltetionTime.text = gameData.time;
         collisionCount.text = gameData.collisionCount.ToString();
-        highestCargoStack.text = gameData.highestCargoStack.ToString();
+        highestCargoStack.text = gameData.totalCargoCollected.ToString();
         earnings.text = (gameData.cargo * gameData.moneyPerCargo).ToString();
         score.text = gameData.finalScore.ToString();
 

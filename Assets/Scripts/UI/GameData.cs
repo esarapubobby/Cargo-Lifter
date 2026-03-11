@@ -6,7 +6,7 @@ public class GameData
     public string time;
     public float finalScore;
     public int collisionCount;
-    public int highestCargoStack;
+    public int totalCargoCollected;
 
     //physical body related data
     public int reps;

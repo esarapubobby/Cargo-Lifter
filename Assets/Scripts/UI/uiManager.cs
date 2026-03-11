@@ -73,6 +73,7 @@ public class uiManager : MonoBehaviour
         crane.StartRotation();
         hook.isGameStarted = true;
         crane.rotationSpeed = 15f;
+        gameManager.SpawnTrucks(1);
     }
 
     public void LoadIntermediateLevel()
@@ -83,7 +84,7 @@ public class uiManager : MonoBehaviour
         crane.StartRotation();
         hook.isGameStarted = true;
         crane.rotationSpeed = 25f;
-
+        gameManager.SpawnTrucks(2);
     }
 
     public void LoadExpertLevel()
@@ -95,7 +96,7 @@ public class uiManager : MonoBehaviour
         crane.StartRotation();
         hook.isGameStarted = true;
         crane.rotationSpeed = 40f;
-
+        gameManager.SpawnTrucks(3);
     }
 
     public void GoToStart()

@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI timerTxt;
 
+    [Header("Trucks")]
+    [SerializeField] private GameObject[] trucks;
+
+
+    private void Start()
+    {
+        ClearTrucks();
+    }
+
 
 
     private void Update()
@@ -66,7 +75,7 @@ public class GameManager : MonoBehaviour
         data.cargo = hook.totalCargoReleased;
         data.finalScore = Mathf.RoundToInt(liveScore + (hook.totalCargoReleased / time) * 100) * 10;
         data.collisionCount = hook.ObstacleCollisionCount;
-        data.highestCargoStack = hook.highestCargoStack;
+        data.totalCargoCollected = hook.totalCargoReleased;
         data.reps = (int)((hook.repCount) / 2) / 60;
         data.totalHoldTime = System.TimeSpan.FromSeconds(hook.holdTimer).ToString(@"mm\:ss");
         data.postureBreaks = (int) hook.postureBreaks / 120;
@@ -82,6 +91,24 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void SpawnTrucks(int numOfTrucks)
+    {
+        for(int i = 0;  i < numOfTrucks;)
+        {
+            if (!trucks[i].activeSelf)
+            {
+                trucks[i].SetActive(true);
+            }
+            i++;
+        }
+    }
 
+    public void ClearTrucks()
+    {
+        foreach(GameObject truck in trucks)
+        {
+            truck.SetActive(false);
+        }
+    }
 
 }
