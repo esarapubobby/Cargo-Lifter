@@ -11,6 +11,8 @@ TagManager:
   - ReleasedCargo
   - Obstacle
   - Hook
+  - Destination
+  - Turn
   layers:
   - Default
   - TransparentFX
