@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ShowAnalytics showAnalytics;
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI timerTxt;
+    [SerializeField] private Animator truckAnimator;
+    [SerializeField]private GameObject TruckFollowCam;
 
     [Header("Trucks")]
     [SerializeField] private GameObject[] trucks;
@@ -33,10 +35,11 @@ public class GameManager : MonoBehaviour
         if (sessionEnded) 
             return;
 
-
         if(totalCargo == hook.totalCargoReleased)
         {
-            sessionEnded = true;
+            
+            TruckFollowCam.SetActive(true);
+            StartCoroutine(PlayTruckAnimAfter());
             UpdateSessionResults();
             showAnalytics.UpdateAnalyticsDisplay(data);
         }
@@ -46,6 +49,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private IEnumerator PlayTruckAnimAfter()
+    {
+        yield return new WaitForSeconds(1.5f);
+        truckAnimator.SetBool("IsRun",true);
+        yield return new WaitForSeconds(10f);
+        sessionEnded = true;
+    }
 
 
 

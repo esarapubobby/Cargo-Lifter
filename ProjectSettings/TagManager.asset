@@ -13,6 +13,7 @@ TagManager:
   - Hook
   - Destination
   - Turn
+  - Truck
   layers:
   - Default
   - TransparentFX

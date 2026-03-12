@@ -29,7 +29,7 @@ public class TruckSlotManager : MonoBehaviour
         Vector3 endPos = truckSlot.position;
 
         float time = 0f;
-        float duration = 5f;
+        float duration = 3f;
 
         if(time < duration)
         {
@@ -40,5 +40,9 @@ public class TruckSlotManager : MonoBehaviour
 
         cargo.position = endPos;
         cargo.localRotation = truckSlot.localRotation;
+
+        GameObject slotParent = truckSlot.transform.parent.gameObject;
+        GameObject truckObj = slotParent.transform.parent.gameObject;
+        cargo.transform.SetParent(truckObj.transform);
     }
 }
