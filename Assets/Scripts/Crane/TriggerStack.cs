@@ -10,11 +10,9 @@ public class TriggerStack : MonoBehaviour
     public int MaxCargo = 1;
     private void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log($"Crane at dropPoint: { craneRotate.currentAngle == craneRotate.endAngle}");
         if (!(other.gameObject.tag == "Cargo"))
         {
-            if (other.gameObject.tag == "DropZone" && hook.cargoStack.Count > 0)
+            if (other.gameObject.tag == "DropZone" && hook.cargoStack.Count > 0 && craneRotate.isAtDropPoint)
             {
                 //StartCoroutine(ReleaseCargoAfter());
                 hook.ReleaseCargo();
