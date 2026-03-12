@@ -25,6 +25,7 @@ public class TriggerStack : MonoBehaviour
         if (hook.cargoStack.Count < MaxCargo)
         {
             hook.StackCargo(other.gameObject);
+            FindAnyObjectByType<CraneAudio>().Pickup();
             if(craneRotate.rotationSpeed < 0)
             {
                 craneRotate.rotationSpeed *= -1;

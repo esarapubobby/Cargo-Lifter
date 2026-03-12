@@ -17,6 +17,8 @@ public class CraneAudio : MonoBehaviour
 
     public void MoveUp()
     {
+        if (audioSource.isPlaying && audioSource.clip == moveUpSound) return;
+
         audioSource.clip = moveUpSound;
         audioSource.loop = true;
         audioSource.Play();
@@ -24,12 +26,16 @@ public class CraneAudio : MonoBehaviour
 
     public void MoveDown()
     {
+        if (audioSource.isPlaying && audioSource.clip == moveDownSound) return;
+
         audioSource.clip = moveDownSound;
         audioSource.loop = true;
         audioSource.Play();
     }
     public void Move()
     {
+        if (audioSource.isPlaying && audioSource.clip == moveSound) return;
+
         audioSource.clip = moveSound;
         audioSource.loop = true;
         audioSource.Play();

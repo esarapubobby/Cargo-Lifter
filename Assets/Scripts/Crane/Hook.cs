@@ -22,11 +22,13 @@ public class Hook : MonoBehaviour
     public int repCount = 0;
     public float holdTimer = 0f;
     public int postureBreaks = 0;
+    float input;
 
 
     public bool isReleasing;
 
     [SerializeField] private CraneRotate crane;
+    [SerializeField] private CraneAudio craneAudio;
     [SerializeField] private TruckSlotManager truckSlotManager;
 
     private void Start()
@@ -39,7 +41,28 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
+        input = Input.GetAxis("Vertical");
+
         RopeControl();
+        PlayCraneAudio();
+        
+    }
+
+    void PlayCraneAudio()
+    {
+        if (input > 0.01f)
+        {
+            craneAudio.MoveUp();
+        }
+        else if (input < -0.01f)
+        {
+            craneAudio.MoveDown();
+        }
+        else
+        {
+            craneAudio.Move();
+        }
+
     }
 
     void RopeControl()
@@ -50,9 +73,6 @@ public class Hook : MonoBehaviour
             return;
         }
 
-
-        float input = Input.GetAxis("Vertical");
-        Debug.Log($"Crane Can rotate{input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint}");
         if(input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint)
         {
             crane.StartRotation();
