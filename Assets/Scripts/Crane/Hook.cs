@@ -52,8 +52,8 @@ public class Hook : MonoBehaviour
 
 
         float input = Input.GetAxis("Vertical");
-
-        if(input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted)
+        Debug.Log($"Crane Can rotate{input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint}");
+        if(input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint)
         {
             crane.StartRotation();
             repCount++; //considering sit  or stand rep, after make it devide by 2 to get actual reps
@@ -99,6 +99,7 @@ public class Hook : MonoBehaviour
             cargoRb.velocity = Vector3.zero;
             cargoRb.angularVelocity = Vector3.zero;
             cargoRb.isKinematic = true;
+            cargoRb.constraints = RigidbodyConstraints.None;
         }
         cargo.GetComponent<Collider>().isTrigger = false;
         cargo.transform.SetParent(cargoContainer.transform);
@@ -166,7 +167,7 @@ public class Hook : MonoBehaviour
 
         cargoContainerCollider.size = new Vector3(cargoContainerCollider.size.x, 0.1f, cargoContainerCollider.size.z);
         cargoContainerCollider.center = Vector3.zero;
-
+        crane.isAtDropPoint = false;
         Invoke("ReleaseComplete", 2f);
     }
 
