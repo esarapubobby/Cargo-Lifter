@@ -28,6 +28,10 @@ public class camBlend : MonoBehaviour
 
         if (!crane.isRotating && !hook.isReleasing)
         {
+            if (crane.isCollided)
+            {
+                return;
+            }
             hookCam.SetActive(true);
         }
         else
