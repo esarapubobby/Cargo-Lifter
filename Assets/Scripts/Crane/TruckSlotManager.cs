@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TruckSlotManager : MonoBehaviour
 {
-    [SerializeField] private List<Transform> truckSlots = new List<Transform>();
-    [SerializeField] private Hook hook;
+    [SerializeField] public List<Transform> truckSlots = new List<Transform>();
 
-    int currentSlotIndex = 0;
+    public int currentSlotIndex = 0;
 
     public Transform GetNextSlot()
     {
@@ -39,10 +38,8 @@ public class TruckSlotManager : MonoBehaviour
         }
 
         cargo.position = endPos;
-        cargo.localRotation = truckSlot.localRotation;
+        cargo.rotation = truckSlot.rotation;
 
-        GameObject slotParent = truckSlot.transform.parent.gameObject;
-        GameObject truckObj = slotParent.transform.parent.gameObject;
-        cargo.transform.SetParent(truckObj.transform);
+        cargo.transform.SetParent(truckSlot);
     }
 }

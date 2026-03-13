@@ -12,12 +12,15 @@ public class GameManager : MonoBehaviour
     public int totalCargo = 3;
 
     [SerializeField] Hook hook;
+    [SerializeField] CraneRotate crane;
+
+    [SerializeField] private Timer timer;
     [SerializeField] private GameData data;
     [SerializeField] private ShowAnalytics showAnalytics;
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI timerTxt;
     [SerializeField] private Animator truckAnimator;
-    [SerializeField]private GameObject TruckFollowCam;
+    [SerializeField] private GameObject TruckFollowCam;
 
     [Header("Trucks")]
     [SerializeField] private GameObject[] trucks;
@@ -32,30 +35,38 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (sessionEnded) 
+        if (!hook.isGameStarted) return;
+
+        if (sessionEnded)
+        {
+            hook.enabled = false;
+            crane.enabled = false;
             return;
+        }
 
         if(totalCargo == hook.totalCargoReleased)
         {
             
-            TruckFollowCam.SetActive(true);
-            StartCoroutine(PlayTruckAnimAfter());
+            //TruckFollowCam.SetActive(true);
+            //StartCoroutine(PlayTruckAnimAfter());
             UpdateSessionResults();
+            sessionEnded = true;
             showAnalytics.UpdateAnalyticsDisplay(data);
         }
 
         UpdateLiveScore();
-        UpdateTimer();
+        timer.Play();
+        time = timer.timeInSec;
 
     }
 
-    private IEnumerator PlayTruckAnimAfter()
-    {
-        yield return new WaitForSeconds(1.5f);
-        truckAnimator.SetBool("IsRun",true);
-        yield return new WaitForSeconds(10f);
-        sessionEnded = true;
-    }
+    //private IEnumerator PlayTruckAnimAfter()
+    //{
+    //    yield return new WaitForSeconds(1.5f);
+    //    truckAnimator.SetBool("IsRun",true);
+    //    yield return new WaitForSeconds(10f);
+        
+    //}
 
 
 
@@ -68,13 +79,6 @@ public class GameManager : MonoBehaviour
         scoreTxt.text = liveScore.ToString();
     } 
 
-    void UpdateTimer()
-    {
-        time += Time.deltaTime;
-        float minutes = Mathf.Floor(time / 60);
-        float seconds = Mathf.Floor(time % 60);
-        timerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
 
 
 
