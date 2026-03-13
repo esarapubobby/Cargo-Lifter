@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+[System.Serializable]
+public class Timer 
 {
-    // Start is called before the first frame update
     [SerializeField] TextMeshProUGUI timerText;
-    float timer = 0f;   
-    void Start()
+    [SerializeField] private uiManager ui;
+    public float timeInSec = 30f;
+    bool isTimerRunning = true;
+
+    public void Play()
     {
-        
+        if (!isTimerRunning) return;
+
+        if (timeInSec < 0)
+        {
+            timeInSec = 0;
+            isTimerRunning = false;
+            OnTimerFinished();
+        }
+
+        timeInSec -= Time.deltaTime;
+        int minutes = (int)timeInSec / 60;
+        int seconds = (int)timeInSec % 60;
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //timerText.text = $"{minutes}:{seconds}";
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer += Time.deltaTime;
-        float minutes = Mathf.Floor(timer / 60);
-        float seconds = Mathf.Floor(timer % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+    private void OnTimerFinished()
+    {
+        ui.ShowGameOver();
     }
 }

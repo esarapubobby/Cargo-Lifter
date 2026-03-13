@@ -2574,6 +2574,7 @@ MonoBehaviour:
   analyticsStatsTab: {fileID: 673801466}
   analyticsGraphTab: {fileID: 1065765275}
   leaderBoard: {fileID: 160056605}
+  gameOverScreen: {fileID: 0}
   crane: {fileID: 1268806771}
   hook: {fileID: 1460424602}
   gameManager: {fileID: 1191225644}
@@ -6353,7 +6354,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 537740351}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966284692}
   m_SourcePrefab: {fileID: 100100000, guid: 6880438938f06c946955d2b004d848fe, type: 3}
 --- !u!1001 &204858877
 PrefabInstance:
@@ -7205,7 +7210,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1085637956}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 815009036}
   m_SourcePrefab: {fileID: 100100000, guid: 6880438938f06c946955d2b004d848fe, type: 3}
 --- !u!4 &235421536 stripped
 Transform:
@@ -22566,6 +22575,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 235421535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &815009036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815009035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8452221ab525c7345be70f268b0264a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  truckSlots:
+  - {fileID: 2074831533}
+  - {fileID: 312400053}
+  - {fileID: 749549981}
+  - {fileID: 1716239840}
+  - {fileID: 670684328}
+  - {fileID: 71780693}
+  currentSlotIndex: 0
 --- !u!1001 &816902865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24840,6 +24869,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1433485427}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919835648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700689641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8452221ab525c7345be70f268b0264a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  truckSlots:
+  - {fileID: 199843605}
+  - {fileID: 393663777}
+  - {fileID: 469075435}
+  - {fileID: 1021570029}
+  - {fileID: 1948062658}
+  - {fileID: 1231893898}
+  currentSlotIndex: 0
 --- !u!1001 &920636782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25097,38 +25146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932850951}
   m_CullTransparentMesh: 1
---- !u!1 &937567070
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 937567071}
-  m_Layer: 0
-  m_Name: DropZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &937567071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937567070}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.4, y: 9.9, z: 29.599998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1177054262}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937645482
 GameObject:
   m_ObjectHideFlags: 0
@@ -30237,14 +30254,14 @@ Transform:
   m_GameObject: {fileID: 1177054261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.709159, z: -0, w: 0.70504856}
-  m_LocalPosition: {x: 56.935173, y: -23.417652, z: -147.80237}
+  m_LocalPosition: {x: 65.335175, y: -13.5176525, z: -118.20237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 235421536}
   - {fileID: 919835647}
   - {fileID: 799877121}
-  m_Father: {fileID: 937567071}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90.333, z: 0}
 --- !u!114 &1177054263
 MonoBehaviour:
@@ -30255,15 +30272,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177054261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8452221ab525c7345be70f268b0264a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 494c656d026514148a7e20560eff9634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truckSlots:
-  - {fileID: 199843605}
-  - {fileID: 393663777}
-  - {fileID: 469075435}
-  - {fileID: 1021570029}
-  - {fileID: 1948062658}
+  trucks: []
+  lastTruckFollowCam: {fileID: 681100349}
   hook: {fileID: 1460424602}
 --- !u!1001 &1184500704
 PrefabInstance:
@@ -30723,6 +30736,11 @@ MonoBehaviour:
   sessionEnded: 0
   totalCargo: 5
   hook: {fileID: 1460424602}
+  crane: {fileID: 0}
+  timer:
+    timerText: {fileID: 2114451909}
+    ui: {fileID: 79918842}
+    timeInSec: 30
   data:
     cargo: 0
     time: 
@@ -36893,7 +36911,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 530281264}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919835648}
   m_SourcePrefab: {fileID: 100100000, guid: 6880438938f06c946955d2b004d848fe, type: 3}
 --- !u!1001 &1434058780
 PrefabInstance:
@@ -37978,7 +38000,6 @@ MonoBehaviour:
   isReleasing: 0
   crane: {fileID: 1268806771}
   craneAudio: {fileID: 1741099019}
-  truckSlotManager: {fileID: 1177054263}
 --- !u!120 &1460424603
 LineRenderer:
   serializedVersion: 2
@@ -50462,6 +50483,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 200520358}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966284692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966284691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8452221ab525c7345be70f268b0264a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  truckSlots:
+  - {fileID: 1606665738}
+  - {fileID: 1910135036}
+  - {fileID: 877795229}
+  - {fileID: 1865547896}
+  - {fileID: 1217189743}
+  - {fileID: 867093610}
+  currentSlotIndex: 0
 --- !u!1001 &1975263251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54694,7 +54735,7 @@ SceneRoots:
   - {fileID: 949951626}
   - {fileID: 2010636771}
   - {fileID: 588513256}
-  - {fileID: 937567071}
+  - {fileID: 1177054262}
   - {fileID: 1191225645}
   - {fileID: 1741099021}
   - {fileID: 326763861}

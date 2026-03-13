@@ -29,7 +29,6 @@ public class Hook : MonoBehaviour
 
     [SerializeField] private CraneRotate crane;
     [SerializeField] private CraneAudio craneAudio;
-    [SerializeField] private TruckSlotManager truckSlotManager;
 
     private void Start()
     {
@@ -88,9 +87,7 @@ public class Hook : MonoBehaviour
             }
         }
 
-
-
-        transform.Translate(0, input * ropeSpeed * Time.deltaTime, 0);
+            transform.Translate(0, input * ropeSpeed * Time.deltaTime, 0);
 
         //updating maxlentgh based on stack collider size
         maxLength = (trolley.transform.position.y - cargoContainerCollider.size.y) - 0.5f;
@@ -155,11 +152,7 @@ public class Hook : MonoBehaviour
 
         totalCargoReleased += cargoStack.Count;
 
-        Transform slot = truckSlotManager.GetNextSlot();
-        if(slot != null)
-        {
-            StartCoroutine(truckSlotManager.MoveCargoToSlot(cargoStack[0].gameObject.transform, slot));
-        }
+
             
 
 
